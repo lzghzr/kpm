@@ -48,10 +48,11 @@ jobs:
 
       - name: Upload artifact
         if: success()
-        uses: initdc/upload-artifact@baac12d9f85834b2f8baa26a08ff97c27cc82cd9
+        uses: lzghzr/upload-artifact@405e6269d5b1feb22bf2a044deb7950596bed6da
         with:
           path: "target/*.kpm"
           artifact-per-file: true
+          artifact-name-rule: ${name}
 
       - name: Upload release
         if: github.event.inputs.release == 'true' && success() && !cancelled()
